@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url('images/20250706_204940.jpg') center/cover no-repeat fixed;
+  color: #eceff4;
+  font-family: 'Segoe UI', sans-serif;
+}
+nav {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  font-size: 12px;
+}
+nav a {
+  color: #eceff4;
+  text-decoration: none;
+}
+.intro-section {
+  background: url('images/2bcba032bdc2e9638ba12a3757286dc6.jpg') center/cover no-repeat;
+  padding: 5rem 2rem;
+  color: #fff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.intro-text h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+.small-text {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  max-width: 400px;
+}
+.projects-header {
+  background: url('images/20250706_204940.jpg') center/cover no-repeat;
+  padding: 4rem 2rem;
+  color: #fff;
+  text-align: center;
+}
+.projects-header h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.projects-header .small-text {
+  font-size: 0.9rem;
+  max-width: 600px;
+  margin: auto;
+}
+.projects-header .subtitle {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+section {
+  padding: 4rem 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.projects, .blogs, .gallery {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.item {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  border-radius: 10px;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.item:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.02);
+}
+.item img {
+  width: 100%;
+  border-radius: 8px;
+}
+.item a {
+  color: #eceff4;
+  text-decoration: none;
+}
