@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Electronic Hack | Jahid</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('Images/20250706_204940.jpg') center/cover no-repeat fixed;
+      color: #eceff4;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      font-size: 12px;
+    }
+    nav a {
+      color: #eceff4;
+      text-decoration: none;
+    }
+    .intro-section {
+      background: url('Images/2bcba032bdc2e9638ba12a3757286dc6.jpg') center/cover no-repeat;
+      padding: 5rem 2rem;
+      color: #fff;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .intro-text h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+    .small-text {
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      max-width: 400px;
+    }
+    .projects-header {
+      background: url('Images/20250706_204940.jpg') center/cover no-repeat;
+      padding: 4rem 2rem;
+      color: #fff;
+      text-align: center;
+    }
+    .projects-header h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .projects-header .small-text {
+      font-size: 0.9rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    .projects-header .subtitle {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    section {
+      padding: 4rem 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .projects, .blogs, .gallery {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .item {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem;
+      border-radius: 10px;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .item:hover {
+      background: rgba(0, 0, 0, 0.8);
+      transform: scale(1.02);
+    }
+    .item img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .item a {
+      color: #eceff4;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#blogs">Blog</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+  </nav>
+
+  <section class="intro-section">
+    <div class="intro-text">
+      <h1>私は JAHID.</h1>
+      <p class="small-text">
+        a tech enthusiast passionate about Embedded Systems, Robotics, IoT and PCB Design. I thrive on bringing Ideas to life through smart devices, Intelligent circuits, and Innovative robotics.
+      </p>
+    </div>
+  </section>
+
+  <section class="projects-header">
+    <h2>MY PROJECTS</h2>
+    <p class="small-text">
+      lly I build things without purpose. from ground up or upgrading other creators projects. but the real enjoyment for me comes from solving a problem even with one line of code.
+    </p>
+    <h3 class="subtitle">THINGS I'VE BUILT</h3>
+  </section>
+
+  <section id="projects">
+    <div class="projects" id="projectsContainer"></div>
+
+    <script>
+      // ✅ ইউটিউব লিংক আর প্রজেক্ট টাইটেল এখানে বসাও
+      const projectVideos = [
+        {
+          link: "https://youtu.be/-XcRIjoXw00?si=eqtPGSxJV3672TUQ",
+          title: "How to Build NRF BOX V2 for BLE and 2.4GHz Network Analysis "
+        },
+        {
+          link: "https://youtu.be/EhhPg2UqNAM?si=tkWVF-9YLUAkNIob",
+          title: "How to Make WiFi Deauther, Evil Twin & Repeater Using One ESP8266 NodeMCU and OLED display"
+        },
+        {
+          link: "https://youtu.be/dANIQEmS8a0?si=AA7zt-TyVrzRNiQY",
+          title: "How to Make WiFi Deauther, Evil Twin & Repeater | NetherCap | All-in-One ESP8266 Wi-Fi Penetration Tool"
+        },
+        {
+          link: "https://youtu.be/-XzJgCrS9T0?si=HFI0wRhT_Agi44uN",
+          title: "OLED FaceBot Animation"
+        }
+      ];
+
+      const container = document.getElementById("projectsContainer");
+
+      projectVideos.forEach(video => {
+        const videoId = new URL(video.link).searchParams.get("v");
+        const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+        const item = document.createElement("div");
+        item.className = "item";
+        item.innerHTML = `
+          <a href="${video.link}" target="_blank">
+            <img src="${thumbnail}" alt="${video.title}">
+            <h3>${video.title}</h3>
+          </a>
+        `;
+        container.appendChild(item);
+      });
+    </script>
+  </section>
+
+  <section id="blogs">
+    <h2>Latest Blogs</h2>
+    <div class="blogs">
+      <div class="item">
+        <h3>How I built an ESP8266 OLED Watch</h3>
+        <p>Published on July 25, 2025</p>
+        <p>This tutorial covers the full process of building an OLED smartwatch with Wi-Fi temperature display...</p>
+      </div>
+      <div class="item">
+        <h3>Using MPU6050 with ESP32</h3>
+        <p>Published on July 10, 2025</p>
+        <p>Learn how to connect, calibrate, and extract angle values from MPU6050 for real-time motion sensing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Project Gallery</h2>
+    <div class="gallery">
+      <div class="item">
+        <img src="project1.jpg" alt="Gallery 1">
+      </div>
+      <div class="item">
+        <img src="project2.jpg" alt="Gallery 2">
+      </div>
+      <div class="item">
+        <img src="project3.jpg" alt="Gallery 3">
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p style="text-align:center; max-width: 700px; margin: auto;">
+      I'm Jahid, a Bangladeshi tech content creator and maker. I run the YouTube channel <strong>Electronic_hack</strong> where I share cool DIY electronics, embedded system tutorials, and innovative tech experiments.
+    </p>
+  </section>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | Electronic Hack</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .search-bar {
+      margin: 30px auto;
+      text-align: center;
+    }
+
+    .search-bar input {
+      padding: 10px 20px;
+      width: 300px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background: #0d0d0d;
+      color: #eee;
+      font-size: 1rem;
+    }
+
+    .blog-card p.date {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Electronic Hack</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-banner">
+    <h1>Tech Blog</h1>
+    <p>Learn & explore tutorials, reviews, and tech news</p>
+  </section>
+
+  <div class="search-bar">
+    <input type="text" id="blogSearch" placeholder="🔍 Search blog posts...">
+  </div>
+
+  <section class="projects-list">
+    <div class="project-grid" id="blogContainer">
+      <!-- Blogs will be inserted here -->
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Electronic Hack | Created by Jahid Hasan</p>
+  </footer>
+
+  <script>
+    const blogs = [
+      {
+        title: "How to Build NRF BOX V2 for BLE and 2.4GHz Network Analysis",
+        date: "2025-07-10",
+        description: "NRF BOX V2.",
+        youtube: "https://youtu.be/-XcRIjoXw00?si=T1LKT9gTCzNY3acr"
+      },
+      {
+        title: "How to Make WiFi Deauther, Evil Twin & Repeater Using One ESP8266 NodeMCU and OLED display",
+        date: "2025-07-05",
+        description: "ALL IN ONE DEVIC.",
+        youtube: "https://youtu.be/EhhPg2UqNAM?si=fr6ttTPivj6liOEW"
+      },
+      {
+        title: "How to Make WiFi Deauther, Evil Twin & Repeater Using One ESP8266 NodeMCU and OLED display part2",
+        date: "2025-06-29",
+        description: "ALL IN ONE DEVIC PART2.",
+        youtube: "https://youtu.be/BwsXqrUiVt0?si=EwO0RYp2JHeUzGDC"
+      }
+    ];
+
+    function getYoutubeID(url) {
+      const regex = /[?&]v=([^&#]*)/;
+      const match = url.match(regex);
+      return match ? match[1] : null;
+    }
+
+    function renderBlogs(filter = "") {
+      const container = document.getElementById("blogContainer");
+      container.innerHTML = "";
+
+      blogs
+        .filter(b => b.title.toLowerCase().includes(filter.toLowerCase()))
+        .forEach(blog => {
+          const videoID = getYoutubeID(blog.youtube);
+          const thumbnail = `https://img.youtube.com/vi/${videoID}/hqdefault.jpg`;
+
+          const card = `
+            <div class="project-card blog-card">
+              <img src="${thumbnail}" alt="${blog.title}">
+              <p class="date">📅 ${blog.date}</p>
+              <h3>${blog.title}</h3>
+              <p>${blog.description}</p>
+              <a href="${blog.youtube}" target="_blank">Watch on YouTube</a>
+            </div>
+          `;
+          container.innerHTML += card;
+        });
+    }
+
+    document.getElementById("blogSearch").addEventListener("input", (e) => {
+      renderBlogs(e.target.value);
+    });
+
+    // Initial load
+    renderBlogs();
+  </script>
+
+</body>
+</html>
